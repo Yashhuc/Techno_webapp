@@ -2,20 +2,32 @@
 {% load crispy_forms_tags %}
 {%block content%}
     <div class="content-setion">
+        {% if messages %}
+        {% for message in messages %}
+        <script>
+            window.onload = function() {
+                alert('{{ message }}');
+            };
+        </script>
+        {% endfor %}
+        {% endif %}
+
         <form method="POST">
             {% csrf_token %}
             <fieldset class="form-group">
-                <legend class="border-bottom mb-4">Join Today</legend>
+                <legend class="border-bottom mb-4">Club Members Only</legend>
                 {{form  |crispy}}
             </fieldset>
+
+            <small id="emailHelp" class="form-text text-muted"><span style="color:red">Please enter a valid email address ending with @nituktech.ac.in</span></small>
             <div class="form-group mb-3">
                 <button class="btn btn-outline-info" type="submit ">Sign Up</button>
             </div>
         </form>
         <div class="border-top pt-3">
             <small class="text-muted">
-                Already Have An Account?
-                <a class="ml-2" href="{%url 'login'%}">Sign In</a>
+                Ready to join the club?
+                <a class="ml-2" href="{% url 'login' %}" style="color: #007bff; text-decoration: none; font-weight: bold;">Log in here</a>
             </small>
         </div>
     </div>

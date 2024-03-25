@@ -1,4 +1,50 @@
-{%extends "blog/base.html"%}
-{%block content%}
-    <h1>About Page</h1>
-{%endblock content%}
+{% extends "blog/base.html" %}
+{% load static %}
+
+{% block content %}
+<h4 style="text-align: center;">About Us</h4>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-sm-6 col-md-4 col-lg-3">
+      <div class="card mb-3" style="max-width: 20rem;">
+        <img class="card-img-top" src="{% static 'blog/member1.jpg' %}" alt="Card 1">
+        <div class="card-body">
+          <h5 class="card-title">Executive Member</h5>
+          <p class="card-text">Arjun Kapoor</p>
+          <a href="#" class="btn btn-primary">Bio</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6 col-md-4 col-lg-3">
+      <div class="card mb-3" style="max-width: 20rem;">
+        <img class="card-img-top" src="{% static 'blog/member2.jpg' %}" alt="Card 2">
+        <div class="card-body">
+          <h5 class="card-title">Executive Member</h5>
+          <p class="card-text">Sneha</p>
+          <a href="#" class="btn btn-primary">Bio</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6 col-md-4 col-lg-3">
+      <div class="card mb-3" style="max-width: 20rem;">
+        <img class="card-img-top" src="{% static 'blog/member3.jpg' %}" alt="Card 3">
+        <div class="card-body">
+          <h5 class="card-title">Executive Member</h5>
+          <p class="card-text">Nitin</p>
+          <a href="#" class="btn btn-primary">Bio</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6 col-md-4 col-lg-3">
+      <div class="card mb-3" style="max-width: 20rem;">
+        <img class="card-img-top" src="{% static 'blog/member1.jpg' %}" alt="Card 4">
+        <div class="card-body">
+          <h5 class="card-title">Executive Member</h5>
+          <p class="card-text">Hritik</p>
+          <a href="#" class="btn btn-primary">Bio</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock content %}

@@ -1,8 +1,125 @@
-<!-- Extending parent Base template which has bootstrap included in it -->
-{%extends "blog/base.html"%}
-{%block content%}
-<h1>{{post.title}}
+{% extends "blog/base.html" %}
+{% load static %}
+{% block content %}
 
-  <h1>Techno Home Page NIT UK</h1>
+<section class="main-section">
+  <div class="container-fluid">
+    <div class="row">
+          <div class="col-md-6" style="background-color: rgb(241, 235, 235);">
+            <div class="h-100 mt-3" >
+                <h2 >NATIONAL INSTITUTE OF TECHNOLOGY, UTTARAKHAND</h2>
+                <p>National Institute of Technology Uttarakhand- one of the thirty-one Institutes of 
+                  National Importance in the country, abides by the afore-mentioned principle by constantly 
+                  providing an encouraging environment for education and training of technical professionals 
+                  as well as grooming the skills of the students through impeccable learning courses.</p>
+            </div>
+        </div>
     
-{%endblock content%}
+    <div class="col-md-6" style="padding-left: 0; padding-right: 0;">
+            <img src="{% static 'blog/media/event2.jpg' %}" alt="Photo" class="img-fluid w-100 h-100" style="object-fit: cover; width: 100%; height: 100%;">
+        </div>
+    </div>
+  </div>
+    
+</section>
+  
+<!-- Hero Section -->
+<section class="hero-section mt-5" style="background-color: #c4acd4;">
+  <div class="container" style="max-width: 90%;">
+      <div class="row justify-content-center align-items-center">
+          <div class="col text-center" style="color: azure;">
+              <h1>Technical Club</h1>
+              <p class="lead">Technical Club is one of the most active societies aiming to promote
+                and encourage technical innovation, practical experience in the modern technologies 
+                among students by organizing Workshops, Technical Seminars, Training Courses, etc. </p>
+          </div>
+      </div>
+  </div>
+</section>
+
+  
+
+   <!-- Blog Post Section -->
+   <section class="blog-post-section my-4">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8">
+          {% if posts %}
+            <h1>Recent Posts</h1>
+            {% for post in posts %}
+              <article class="media content-section">
+                <div class="media-body">
+                  <div class="article-metadata">
+                    <a class="mr-2" href="#">{{ post.author }}</a>
+                    <small class="text-muted">{{ post.date_posted|date:"F d, Y" }}</small>
+                  </div>
+                  <h2><a class="article-title" href="#">{{ post.title }}</a></h2>
+                  <p class="article-content">{{ post.content }}</p>
+                </div>
+              </article>
+            {% endfor %}
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Carousel Section -->
+  <section class="carousel-section my-4">
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+      <ol class="carousel-indicators">
+        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+        <!-- Add more indicators as needed -->
+      </ol>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img class="d-block w-100 carousel-image" src="{% static 'blog/media/event1.jpg' %}" alt="First slide">
+          <div class="carousel-caption d-none d-md-block">
+            <h5>HACKATHON</h5>
+            <p>Hack | Solve | Repeat</p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img class="d-block w-100 carousel-image" src="{% static 'blog/media/event5.jpg' %}" alt="Second slide">
+          <div class="carousel-caption d-none d-md-block">
+            <h5>ROBO WAR</h5>
+            <p>Powerfull wins the battle..!</p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img class="d-block w-100 carousel-image" src="{% static 'blog/media/event3.jpg' %}" alt="Second slide">
+          <div class="carousel-caption d-none d-md-block">
+            <h5>YOUNG SCIENTIST INNOVATION</h5>
+            <p>Innovate new ideas</p>
+          </div>
+        </div>
+        <!-- Add more carousel items as needed -->
+      </div>
+      <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+  </section>
+
+
+<!-- About Section -->
+<section id="about" class="about-section my-4">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12" style="color: rgb(51, 52, 53);">
+        <h2>About Us</h2>
+        <p>We are a passionate community of students dedicated to exploring and mastering various aspects of technology. Our mission is to foster innovation, collaboration, and learning among our members.</p>
+        <p>Join us in our journey to discover the endless possibilities of technology!</p>
+      </div>
+      
+    </div>
+  </div>
+</section>
+{% endblock %}
